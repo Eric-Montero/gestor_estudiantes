@@ -61,4 +61,4 @@ MIT
 
 ---
 
-Desarrollado por [[Tu Nombre](https://github.com/Eric-Montero)].
+Desarrollado por [[Eric Montero](https://github.com/Eric-Montero)].
