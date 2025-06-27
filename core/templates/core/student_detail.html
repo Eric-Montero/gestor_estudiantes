@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Detalles de {{ estudiante.nombre }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+  <div class="bg-white p-8 rounded shadow-md w-full max-w-lg">
+    <h1 class="text-2xl font-bold mb-4">{{ estudiante.nombre }} {{ estudiante.apellido }}</h1>
+    <p class="mb-2"><span class="font-semibold">Correo:</span> {{ estudiante.correo }}</p>
+    <p class="mb-4"><span class="font-semibold">Fecha de nacimiento:</span> {{ estudiante.fecha_nacimiento }}</p>
+
+    <h2 class="text-xl font-semibold mb-2">Calificaciones:</h2>
+    <ul class="mb-4 list-disc list-inside">
+      {% for c in calificaciones %}
+        <li>{{ c.materia.nombre }}: <span class="font-mono">{{ c.nota }}</span></li>
+      {% empty %}
+        <li class="text-gray-500">No tiene calificaciones.</li>
+      {% endfor %}
+    </ul>
+
+    <p class="mb-6"><strong>Promedio:</strong> <span class="font-mono">{{ promedio|floatformat:2 }}</span></p>
+
+    <a href="{% url 'student_list' %}" class="text-blue-600 hover:underline">← Volver a la lista</a>
+  </div>
+</body>
+</html>
